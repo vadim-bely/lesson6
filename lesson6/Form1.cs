@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,18 +21,32 @@ namespace lesson6
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
-            textBox1.BackColor = Color.White;
+            textBox1.BackColor = Color.Bisque;
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text.Length == 0)
+            {
+                MessageBox.Show("В введите любое слово или число");
+            }
+            
             if (radioButtonColor.Checked)
             {
+                if (comboBoxParam.Text.Equals("White"))
+                {
+                    textBox1.BackColor = Color.Gray;
+                } else textBox1.BackColor = Color.Bisque;
                 textBox1.ForeColor = Color.FromName(comboBoxParam.Text);
+            } else if (radioButtonSize.Checked)
+            {
+                textBox1.Font = new Font(textBox1.Font.Name,int.Parse(comboBoxParam.Text), textBox1.Font.Style);
+            } else if (radioButtonStyle.Checked)
+            {
+                textBox1.Font = new Font(textBox1.Font.Name,textBox1.Font.Size, (FontStyle)Enum.Parse(typeof(FontStyle),comboBoxParam.Text));
             } else if (radioButtonFont.Checked)
             {
-                textBox1.Font = new Font("Vadim's Writing",int.Parse(comboBoxParam.Text));
+                textBox1.Font = new Font(comboBoxParam.Text, textBox1.Font.Size, textBox1.Font.Style);
             }
 
         }
@@ -55,12 +70,19 @@ namespace lesson6
         
         private void radioButtonStyle_CheckedChanged(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            string[] style = {"Bold", "Italic", "Regular", "Strikeout", "Underline"};
+            comboBoxParam.Items.Clear();
+            comboBoxParam.Items.AddRange(style);
+            comboBoxParam.Visible = true;
+            
         }
 
         private void radioButtonFont_CheckedChanged(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            string[] font = {"algerian", "Vadim's Writing", "IrinaC", "marlett", "WEBDINGS"};
+            comboBoxParam.Items.Clear();
+            comboBoxParam.Items.AddRange(font);
+            comboBoxParam.Visible = true;
         }
     }
 }

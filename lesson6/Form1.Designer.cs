@@ -79,6 +79,7 @@
             this.radioButtonStyle.TabStop = true;
             this.radioButtonStyle.Text = "Style";
             this.radioButtonStyle.UseVisualStyleBackColor = true;
+            this.radioButtonStyle.CheckedChanged += new System.EventHandler(this.radioButtonStyle_CheckedChanged);
             // 
             // radioButtonFont
             // 
@@ -89,6 +90,7 @@
             this.radioButtonFont.TabStop = true;
             this.radioButtonFont.Text = "Font";
             this.radioButtonFont.UseVisualStyleBackColor = true;
+            this.radioButtonFont.CheckedChanged += new System.EventHandler(this.radioButtonFont_CheckedChanged);
             // 
             // button1
             // 
@@ -137,9 +139,7 @@
         private System.Windows.Forms.ComboBox comboBoxParam;
 
         private System.Windows.Forms.RadioButton radioButtonColor;
-
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-
+        
         private System.Windows.Forms.Button button1;
 
         private System.Windows.Forms.RadioButton radioButtonFont;
