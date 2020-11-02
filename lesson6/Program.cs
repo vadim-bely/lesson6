@@ -8,6 +8,7 @@ namespace lesson6
 {
     static class Program
     {
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -19,4 +20,5 @@ namespace lesson6
             Application.Run(new Form1());
         }
     }
+    
 }
